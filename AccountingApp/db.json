@@ -1,5 +1,29 @@
 {
     "transactions": [
-        
+        {
+            "happening": "Real Capital",
+            "amount": "40000",
+            "report": "BR"
+        },
+        {
+            "happening": "Labour",
+            "amount": "-60000",
+            "report": "RR"
+        },
+        {
+            "happening": "Seed Investment",
+            "amount": "-10000",
+            "report": "BR"
+        },
+        {
+            "happening": "Profit",
+            "amount": "70000",
+            "report": "RR"
+        },
+        {
+            "happening": "Savings",
+            "amount": "40000",
+            "report": "BR"
+        }
     ]
 }
