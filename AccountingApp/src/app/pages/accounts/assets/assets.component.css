@@ -1,8 +1,0 @@
-.account-container{
-    display: flex;
-    flex-direction: row;
-}
-.info{
-    border: 1px solid black;
-    width: max-content; 
-}

@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+.account-container{
+    width: 25vw;
+}
+.scale-container{
+    display: flex;
+    flex-direction: row;
+}
+.info{
+    flex: 1;
+    border: 1px solid rgb(53, 43, 125);
+    background-color: rgb(246, 245, 255);
+}
+.title{
+    font-family: 'Quicksand';
+    margin: 0;
+    padding: 2px;
+}
+.red-text{
+    color: rgb(167, 23, 23);
+}
+.green-text{
+    color: rgb(1, 93, 1);
+}
