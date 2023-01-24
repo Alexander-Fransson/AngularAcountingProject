@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 .account-container{
-    width: 25vw;
+    width: 500px;
 }
 .scale-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 .info{
     flex: 1;
@@ -15,7 +16,7 @@
 .title{
     font-family: 'Quicksand';
     margin: 0;
-    padding: 2px;
+    padding: 5px;
 }
 .red-text{
     color: rgb(167, 23, 23);
