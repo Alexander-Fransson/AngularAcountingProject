@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ButtonComponent {
   @Output() showAddForm = new EventEmitter()
-
+  @Input() action: string = "Add"
   onClick(){
     this.showAddForm.emit()
     console.log('click')

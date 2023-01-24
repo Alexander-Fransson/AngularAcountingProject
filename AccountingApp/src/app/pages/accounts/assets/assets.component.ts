@@ -13,6 +13,7 @@ export class AssetsComponent implements OnInit {
   debit: ITransaction[] = []
   credit: ITransaction[] = []
   showAddForm: boolean = false
+  buttonAction: string = "Add"
 
   constructor(private transactionService: TransactionsService) {}
 
@@ -27,13 +28,15 @@ export class AssetsComponent implements OnInit {
           }
           else if(transaction.amount < 0){
             this.credit.push(transaction)
-          }
-        }
-      })
-    })
-  }
+  }}})})}
 
   toggleAddForm(){
     this.showAddForm = !this.showAddForm
+    if(this.showAddForm){
+      this.buttonAction = "Close"
+    }
+    else{
+      this.buttonAction = "Add"
+    }
   }
 }

@@ -1,0 +1,9 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+input[type="submit"]{
+    background-color: black;
+    color: aliceblue;
+    width: fit-content;
+}

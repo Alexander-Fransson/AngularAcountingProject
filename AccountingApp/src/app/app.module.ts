@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AssetsComponent } from './pages/accounts/assets/assets.component';
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   imports: [
     HttpClientModule,
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false})
   ],
   providers: [],

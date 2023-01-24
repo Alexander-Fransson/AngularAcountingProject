@@ -21,4 +21,9 @@ export class TransactionsService {
   getTransactions(): Observable<ITransaction[]> {
     return this.http.get<ITransaction[]>(this.apiUrl)
   }
+
+  addTransaction(newTransaction: ITransaction): Observable<ITransaction>{
+    console.log("trying to add transaction")
+    return this.http.post<ITransaction>(this.apiUrl, newTransaction, httpOptions)
+  }
 }

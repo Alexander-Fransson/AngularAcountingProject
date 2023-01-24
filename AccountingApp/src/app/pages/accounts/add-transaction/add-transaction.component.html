@@ -1,1 +1,9 @@
-<p>add-transaction works!</p>
+<form (ngSubmit)="onSubmit()">
+    <label for="happening">Business event</label>
+    <input type="text" name="happening" [(ngModel)]="happening">
+
+    <label for="amount">Amount</label>
+    <input type="number" name="amount" [(ngModel)]="amount">
+
+    <input type="submit">
+</form>

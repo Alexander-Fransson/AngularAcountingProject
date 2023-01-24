@@ -1,10 +1,20 @@
 <div class="info account-container">
+
     <div class="scale-container info">
         <h1 class="title">Assets 1</h1>
-        <app-button (showAddForm)="toggleAddForm()"></app-button>
+        <app-button 
+            (showAddForm)="toggleAddForm()"
+            action="{{buttonAction}}">
+        </app-button>
     </div>
-    <app-add-transaction *ngIf="showAddForm"></app-add-transaction>
+
+    <app-add-transaction 
+        *ngIf="showAddForm"
+        [isRR]=false>
+    </app-add-transaction>
+
     <div class="scale-container">
+
         <section class="info">
             <h2 class="title green-text">Debit</h2>
             <app-transction 
@@ -15,10 +25,13 @@
     
         <section class="info">
             <h2 class="title red-text">Credit</h2>
+
             <app-transction 
             *ngFor="let transaction of credit"
             [transactionData]="transaction"
             ></app-transction>
+
         </section>
+
     </div>
 </div>
