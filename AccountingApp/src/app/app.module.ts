@@ -9,6 +9,7 @@ import { AccountsComponent } from './pages/accounts/accounts/accounts.component'
 import { ReportsComponent } from './pages/reports/reports/reports.component';
 import { TransctionComponent } from './pages/accounts/transction/transction.component';
 import { ButtonComponent } from './pages/accounts/button/button.component';
+import { AddTransactionComponent } from './pages/accounts/add-transaction/add-transaction.component';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     AccountsComponent,
     ReportsComponent,
     TransctionComponent,
-    ButtonComponent
+    ButtonComponent,
+    AddTransactionComponent
   ],
   imports: [
     HttpClientModule,

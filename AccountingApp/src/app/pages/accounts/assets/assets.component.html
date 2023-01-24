@@ -1,9 +1,9 @@
 <div class="info account-container">
     <div class="scale-container info">
         <h1 class="title">Assets 1</h1>
-        <app-button></app-button>
+        <app-button (showAddForm)="toggleAddForm()"></app-button>
     </div>
-
+    <app-add-transaction *ngIf="showAddForm"></app-add-transaction>
     <div class="scale-container">
         <section class="info">
             <h2 class="title green-text">Debit</h2>

@@ -12,6 +12,7 @@ export class AssetsComponent implements OnInit {
   transactions: ITransaction[] = []
   debit: ITransaction[] = []
   credit: ITransaction[] = []
+  showAddForm: boolean = false
 
   constructor(private transactionService: TransactionsService) {}
 
@@ -20,7 +21,7 @@ export class AssetsComponent implements OnInit {
       transactions.forEach(transaction => {
 
         if(transaction.report == "BR"){
-          
+
           if(transaction.amount > 0){
             this.debit.push(transaction)
           }
@@ -30,5 +31,9 @@ export class AssetsComponent implements OnInit {
         }
       })
     })
+  }
+
+  toggleAddForm(){
+    this.showAddForm = !this.showAddForm
   }
 }
