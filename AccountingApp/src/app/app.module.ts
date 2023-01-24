@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AssetsComponent } from './pages/accounts/assets/assets.component';
 import { AccountsComponent } from './pages/accounts/accounts/accounts.component';
 import { ReportsComponent } from './pages/reports/reports/reports.component';
+import { TransctionComponent } from './pages/accounts/transction/transction.component';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -17,7 +18,8 @@ const appRoutes: Routes = [
     AppComponent,
     AssetsComponent,
     AccountsComponent,
-    ReportsComponent
+    ReportsComponent,
+    TransctionComponent
   ],
   imports: [
     BrowserModule,
