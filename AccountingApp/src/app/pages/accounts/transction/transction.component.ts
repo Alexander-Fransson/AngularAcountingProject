@@ -8,4 +8,9 @@ import { ITransaction } from 'src/app/ITransaction';
 })
 export class TransctionComponent {
   @Input() transactionData!: ITransaction
+  showChangeForm:boolean = false 
+
+  showForm():void{
+    this.showChangeForm = !this.showChangeForm
+  }
 }

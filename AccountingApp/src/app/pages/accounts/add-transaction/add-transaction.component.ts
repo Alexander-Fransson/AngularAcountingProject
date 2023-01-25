@@ -24,7 +24,8 @@ export class AddTransactionComponent {
       const newTransaction: ITransaction = {
         happening: this.happening,
         amount: this.amount,
-        report: this.isRR ? "RR" : "BR"
+        report: this.isRR ? "RR" : "BR",
+        date: this.date
       }
 
       this.addedTransaction.emit(newTransaction)

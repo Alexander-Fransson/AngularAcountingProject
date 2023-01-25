@@ -1,4 +1,12 @@
-<div class="scale-container">
-    <p class="title happening">{{transactionData.happening}}</p>
-    <p class="title amount">{{transactionData.amount}}</p>
+<div (dblclick)="showForm()">
+    <div *ngIf="!showChangeForm" class="scale-container">
+        <p class="title happening">{{transactionData.happening}}</p>
+        <p class="title amount">{{transactionData.amount}}</p>
+    </div>
+    <form *ngIf="showChangeForm">
+        <input type="text" name="happening" value="{{transactionData.happening}}">
+        <input type="number" name="amount" value="{{transactionData.amount}}">
+        <input type="submit">
+        <p>{{transactionData.date}}</p>
+    </form>
 </div>

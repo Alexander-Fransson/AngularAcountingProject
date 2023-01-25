@@ -4,49 +4,64 @@
       "id": "1",
       "happening": "Real Capital",
       "amount": "40000",
-      "report": "BR"
+      "report": "BR",
+      "date": "sometime"
     },
     {
       "id": "2",
       "happening": "Labour",
       "amount": "-60000",
-      "report": "RR"
+      "report": "RR",
+      "date": "made sometime ago"
     },
     {
       "id": "3",
       "happening": "Seed Investment",
       "amount": "-10000",
-      "report": "BR"
+      "report": "BR",
+      "date": "made sometime ago"
     },
     {
       "id": "4",
       "happening": "Profit",
       "amount": "70000",
-      "report": "RR"
+      "report": "RR",
+      "date": "made sometime ago"
     },
     {
       "id": "5",
       "happening": "Savings",
       "amount": "40000",
-      "report": "BR"
+      "report": "BR",
+      "date": "made sometime ago"
     },
     {
       "happening": "I spent nothing, did nothing, never ventured nor gained",
       "amount": -4,
       "report": "BR",
-      "id": "NPRKEPi"
+      "id": "NPRKEPi",
+      "date": "made sometime ago"
     },
     {
       "happening": "I spent nothing, did nothing, never ventured nor gained",
       "amount": 300,
       "report": "BR",
-      "id": "sJXpZvK"
+      "id": "sJXpZvK",
+      "date": "made sometime ago"
     },
     {
       "happening": "Bought a Cola",
       "amount": -300,
       "report": "BR",
-      "id": "BlJj_Ot"
+      "id": "BlJj_Ot",
+      "date": "made sometime ago"
+    },
+    {
+      "happening": "Concoring the world",
+      "amount": -9000000,
+      "report": "BR",
+      "date": "2023-01-25T14:41:01.064Z",
+      "id": "3MDZq-U"
     }
   ]
 }

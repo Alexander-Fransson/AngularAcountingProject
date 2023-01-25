@@ -21,8 +21,8 @@ export class AssetsComponent implements OnInit {
     this.transactionService.getTransactions().subscribe((transactions) => {
 
       this.transactions = transactions
-      this.debit = this.transactions.filter(transaction => transaction.amount > 0)
-      this.credit = this.transactions.filter(transaction => transaction.amount < 0)
+      this.debit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
+      this.credit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
     })
   }
 
@@ -39,10 +39,10 @@ export class AssetsComponent implements OnInit {
   onAddedTransaction(newTransaction: ITransaction){
     console.log(newTransaction)
     this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
-      
+
       this.transactions.push(newTransaction)
-      this.debit = this.transactions.filter(transaction => transaction.amount > 0)
-      this.credit = this.transactions.filter(transaction => transaction.amount < 0)
+      this.debit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
+      this.credit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
     })
   }
 }
