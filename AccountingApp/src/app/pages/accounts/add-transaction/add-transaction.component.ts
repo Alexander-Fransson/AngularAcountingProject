@@ -1,6 +1,5 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input,Output,EventEmitter } from '@angular/core';
 import { ITransaction } from 'src/app/ITransaction';
-import { TransactionsService } from 'src/app/services/transactions.service';
 
 @Component({
   selector: 'app-add-transaction',
@@ -9,10 +8,10 @@ import { TransactionsService } from 'src/app/services/transactions.service';
 })
 export class AddTransactionComponent {
   @Input() isRR!: boolean
+  @Output() addedTransaction: EventEmitter<ITransaction> = new EventEmitter()
   happening?: string
   amount!: number 
-
-  constructor(private transactionService: TransactionsService){}
+  date: Date = new Date()
 
   onSubmit(): void{
     if(this.amount == 0){
@@ -28,7 +27,9 @@ export class AddTransactionComponent {
         report: this.isRR ? "RR" : "BR"
       }
 
-      this.transactionService.addTransaction(newTransaction)
+      this.addedTransaction.emit(newTransaction)
+      this.happening = ""
+      this.amount = 0
     }
   }
 }

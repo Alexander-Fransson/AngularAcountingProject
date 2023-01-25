@@ -1,29 +1,52 @@
 {
-    "transactions": [
-        {
-            "happening": "Real Capital",
-            "amount": "40000",
-            "report": "BR"
-        },
-        {
-            "happening": "Labour",
-            "amount": "-60000",
-            "report": "RR"
-        },
-        {
-            "happening": "Seed Investment",
-            "amount": "-10000",
-            "report": "BR"
-        },
-        {
-            "happening": "Profit",
-            "amount": "70000",
-            "report": "RR"
-        },
-        {
-            "happening": "Savings",
-            "amount": "40000",
-            "report": "BR"
-        }
-    ]
+  "transactions": [
+    {
+      "id": "1",
+      "happening": "Real Capital",
+      "amount": "40000",
+      "report": "BR"
+    },
+    {
+      "id": "2",
+      "happening": "Labour",
+      "amount": "-60000",
+      "report": "RR"
+    },
+    {
+      "id": "3",
+      "happening": "Seed Investment",
+      "amount": "-10000",
+      "report": "BR"
+    },
+    {
+      "id": "4",
+      "happening": "Profit",
+      "amount": "70000",
+      "report": "RR"
+    },
+    {
+      "id": "5",
+      "happening": "Savings",
+      "amount": "40000",
+      "report": "BR"
+    },
+    {
+      "happening": "I spent nothing, did nothing, never ventured nor gained",
+      "amount": -4,
+      "report": "BR",
+      "id": "NPRKEPi"
+    },
+    {
+      "happening": "I spent nothing, did nothing, never ventured nor gained",
+      "amount": 300,
+      "report": "BR",
+      "id": "sJXpZvK"
+    },
+    {
+      "happening": "Bought a Cola",
+      "amount": -300,
+      "report": "BR",
+      "id": "BlJj_Ot"
+    }
+  ]
 }

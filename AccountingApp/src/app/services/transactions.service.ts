@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application-json'
+    'Content-Type': 'application/json'
   })
 }
 
@@ -23,7 +23,6 @@ export class TransactionsService {
   }
 
   addTransaction(newTransaction: ITransaction): Observable<ITransaction>{
-    console.log("trying to add transaction")
     return this.http.post<ITransaction>(this.apiUrl, newTransaction, httpOptions)
   }
 }

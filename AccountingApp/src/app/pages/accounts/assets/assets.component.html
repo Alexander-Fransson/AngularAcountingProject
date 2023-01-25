@@ -10,7 +10,8 @@
 
     <app-add-transaction 
         *ngIf="showAddForm"
-        [isRR]=false>
+        [isRR]=false
+        (addedTransaction)="onAddedTransaction($event)">
     </app-add-transaction>
 
     <div class="scale-container">

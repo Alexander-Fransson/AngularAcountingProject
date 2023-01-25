@@ -19,16 +19,12 @@ export class AssetsComponent implements OnInit {
 
   ngOnInit(): void {
     this.transactionService.getTransactions().subscribe((transactions) => {
-      transactions.forEach(transaction => {
 
-        if(transaction.report == "BR"){
-
-          if(transaction.amount > 0){
-            this.debit.push(transaction)
-          }
-          else if(transaction.amount < 0){
-            this.credit.push(transaction)
-  }}})})}
+      this.transactions = transactions
+      this.debit = this.transactions.filter(transaction => transaction.amount > 0)
+      this.credit = this.transactions.filter(transaction => transaction.amount < 0)
+    })
+  }
 
   toggleAddForm(){
     this.showAddForm = !this.showAddForm
@@ -38,5 +34,15 @@ export class AssetsComponent implements OnInit {
     else{
       this.buttonAction = "Add"
     }
+  }
+
+  onAddedTransaction(newTransaction: ITransaction){
+    console.log(newTransaction)
+    this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
+      
+      this.transactions.push(newTransaction)
+      this.debit = this.transactions.filter(transaction => transaction.amount > 0)
+      this.credit = this.transactions.filter(transaction => transaction.amount < 0)
+    })
   }
 }
