@@ -3,10 +3,26 @@
         <p class="title happening">{{transactionData.happening}}</p>
         <p class="title amount">{{transactionData.amount}}</p>
     </div>
-    <form *ngIf="showChangeForm">
-        <input type="text" name="happening" value="{{transactionData.happening}}">
-        <input type="number" name="amount" value="{{transactionData.amount}}">
-        <input type="submit">
+
+    <form 
+        *ngIf="showChangeForm"
+        (ngSubmit)="updateTransaction()"
+    >
+        <input 
+            type="text" 
+            name="happening" 
+            [(ngModel)]="happening"
+        >
+        <input 
+            type="number" 
+            name="amount" 
+            [(ngModel)]="amount"
+        >
+
+        <div>
+            <input type="submit" value="Update">
+            <button>Delete</button>
+        </div>
         <p>{{transactionData.date}}</p>
     </form>
 </div>

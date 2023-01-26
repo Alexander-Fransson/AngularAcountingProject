@@ -25,4 +25,9 @@ export class TransactionsService {
   addTransaction(newTransaction: ITransaction): Observable<ITransaction>{
     return this.http.post<ITransaction>(this.apiUrl, newTransaction, httpOptions)
   }
+
+  updateTransaction(updatedTransaction: ITransaction): Observable<ITransaction>{
+    const url = `${this.apiUrl}/${updatedTransaction.id}`
+    return this.http.put<ITransaction>(url, updatedTransaction, httpOptions)
+  }
 }

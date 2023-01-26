@@ -2,8 +2,8 @@
   "transactions": [
     {
       "id": "1",
-      "happening": "Real Capital",
-      "amount": "40000",
+      "happening": "Capital",
+      "amount": 50000,
       "report": "BR",
       "date": "sometime"
     },
