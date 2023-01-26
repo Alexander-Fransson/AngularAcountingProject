@@ -1,7 +1,7 @@
 <div class="info account-container">
 
     <div class="scale-container info">
-        <h1 class="title">1. Assets</h1>
+        <h1 class="title">2. Debts</h1>
         <app-button 
             (showAddForm)="toggleAddForm()"
             action="{{buttonAction}}">
@@ -17,7 +17,7 @@
     <div class="scale-container">
 
         <section class="info">
-            <h2 class="title green-text">Debit +</h2>
+            <h2 class="title red-text">Debit -</h2>
             <app-transction 
             *ngFor="let transaction of debit"
             [transactionData]="transaction"
@@ -26,7 +26,7 @@
         </section>
     
         <section class="info">
-            <h2 class="title red-text">Credit -</h2>
+            <h2 class="title green-text">Credit +</h2>
 
             <app-transction 
             *ngFor="let transaction of credit"

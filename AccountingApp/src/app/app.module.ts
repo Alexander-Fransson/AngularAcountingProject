@@ -11,6 +11,7 @@ import { ReportsComponent } from './pages/reports/reports/reports.component';
 import { TransctionComponent } from './pages/accounts/transction/transction.component';
 import { ButtonComponent } from './pages/accounts/button/button.component';
 import { AddTransactionComponent } from './pages/accounts/add-transaction/add-transaction.component';
+import { DebtsComponent } from './pages/accounts/debts/debts.component';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     ReportsComponent,
     TransctionComponent,
     ButtonComponent,
-    AddTransactionComponent
+    AddTransactionComponent,
+    DebtsComponent
   ],
   imports: [
     HttpClientModule,
