@@ -12,6 +12,8 @@ import { TransctionComponent } from './pages/accounts/transction/transction.comp
 import { ButtonComponent } from './pages/accounts/button/button.component';
 import { AddTransactionComponent } from './pages/accounts/add-transaction/add-transaction.component';
 import { DebtsComponent } from './pages/accounts/debts/debts.component';
+import { StoreModule } from '@ngrx/store';
+import { transactionReducer } from './state/transactions/transactions.reducer';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: false})
+    RouterModule.forRoot(appRoutes, {enableTracing: false}),
+    StoreModule.forRoot({transactions: transactionReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
