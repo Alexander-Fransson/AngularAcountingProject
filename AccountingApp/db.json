@@ -1,13 +1,6 @@
 {
   "transactions": [
     {
-      "id": "1",
-      "happening": "Capital",
-      "amount": 50000,
-      "report": "BR",
-      "date": "sometime"
-    },
-    {
       "id": "2",
       "happening": "Labour",
       "amount": "-60000",
@@ -43,25 +36,11 @@
       "date": "made sometime ago"
     },
     {
-      "happening": "I spent nothing, did nothing, never ventured nor gained",
-      "amount": 300,
+      "happening": "Real Capital",
+      "amount": 40000000,
       "report": "BR",
-      "id": "sJXpZvK",
-      "date": "made sometime ago"
-    },
-    {
-      "happening": "Bought a Cola",
-      "amount": -300,
-      "report": "BR",
-      "id": "BlJj_Ot",
-      "date": "made sometime ago"
-    },
-    {
-      "happening": "Concoring the world",
-      "amount": -9000000,
-      "report": "BR",
-      "date": "2023-01-25T14:41:01.064Z",
-      "id": "3MDZq-U"
+      "date": "2023-01-26T09:36:55.730Z",
+      "id": "clFMcSQ"
     }
   ]
 }

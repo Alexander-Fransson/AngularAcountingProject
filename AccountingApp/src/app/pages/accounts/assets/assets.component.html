@@ -17,19 +17,21 @@
     <div class="scale-container">
 
         <section class="info">
-            <h2 class="title green-text">Debit</h2>
+            <h2 class="title green-text">Debit +</h2>
             <app-transction 
             *ngFor="let transaction of debit"
             [transactionData]="transaction"
+            (deathrowTransaction)="onTransactionDeletion($event)"
             ></app-transction>
         </section>
     
         <section class="info">
-            <h2 class="title red-text">Credit</h2>
+            <h2 class="title red-text">Credit -</h2>
 
             <app-transction 
             *ngFor="let transaction of credit"
             [transactionData]="transaction"
+            (deathrowTransaction)="onTransactionDeletion($event)"
             ></app-transction>
 
         </section>

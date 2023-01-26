@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
 
@@ -9,6 +9,7 @@ import { TransactionsService } from 'src/app/services/transactions.service';
 })
 export class TransctionComponent implements OnInit{
   @Input() transactionData!: ITransaction
+  @Output() deathrowTransaction = new EventEmitter()
   showChangeForm:boolean = false 
   happening!:string
   amount!:number
@@ -30,5 +31,9 @@ export class TransctionComponent implements OnInit{
 
     this.transactionService.updateTransaction(this.transactionData).subscribe((transaction) => (this.transactionData = transaction));
     this.showForm()
+  }
+
+  deleteTransaction():void{
+    this.deathrowTransaction.emit(this.transactionData)
   }
 }

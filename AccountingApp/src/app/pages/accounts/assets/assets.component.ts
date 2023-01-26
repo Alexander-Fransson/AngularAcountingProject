@@ -37,12 +37,17 @@ export class AssetsComponent implements OnInit {
   }
 
   onAddedTransaction(newTransaction: ITransaction){
-    console.log(newTransaction)
     this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
 
       this.transactions.push(newTransaction)
       this.debit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
       this.credit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
+    })
+  }
+
+  onTransactionDeletion(deathrowTransaction: ITransaction){
+    this.transactionService.deleteTransaction(deathrowTransaction).subscribe(() => {
+      this.ngOnInit()
     })
   }
 }

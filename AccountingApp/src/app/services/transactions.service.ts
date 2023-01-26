@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,  } from '@angular/core';
 import { ITransaction } from '../ITransaction';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -29,5 +29,10 @@ export class TransactionsService {
   updateTransaction(updatedTransaction: ITransaction): Observable<ITransaction>{
     const url = `${this.apiUrl}/${updatedTransaction.id}`
     return this.http.put<ITransaction>(url, updatedTransaction, httpOptions)
+  }
+
+  deleteTransaction(deathrowTransaction:ITransaction){
+    const url = `${this.apiUrl}/${deathrowTransaction.id}`
+    return this.http.delete<ITransaction>(url)
   }
 }
