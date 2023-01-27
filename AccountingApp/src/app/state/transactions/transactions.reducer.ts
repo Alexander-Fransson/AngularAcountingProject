@@ -1,45 +1,51 @@
 import { createReducer, on } from "@ngrx/store";
-import { updateTransaction, deleteTransaction, getTransaction } from "./transactions.actions";
+import * as TransactionActions from "./transactions.actions"
 import { ITransaction } from "src/app/ITransaction";
+
+/****************************************************************************************
+Here states specific to the page, unrelated to the server are stored and centraly managed
+Right now I have no need for the handeling of page state outside of components so the 
+functions here are purely experimental.
+****************************************************************************************/
 
 export const transactionState:ITransaction[] = [
       {
         id: 2,
-        happening: "Labour",
+        happening: "Slavery",
         amount: -60000,
         report: "RR",
         date: new Date(),
       },
       {
         id: 3,
-        happening: "Seed Investment",
+        happening: "Ransom",
         amount: -10000,
         report: "BR",
         date: new Date(),
       },
       {
         id: 4,
-        happening: "Profit",
+        happening: "Raiding Booty",
         amount: 70000,
         report: "RR",
         date: new Date(),
       },
       {
         id: 1,
-        happening: "Savings",
+        happening: "Moms credit card",
         amount: 40000,
         report: "BR",
         date: new Date(),
       },
       {
         id: 5,
-        happening: "I spent nothing, did nothing, never ventured nor gained",
+        happening: "Entertainment",
         amount: -4,
         report: "BR",
         date: new Date(),
       },
       {
-        happening: "Real Capital",
+        happening: "Winning the lottery",
         amount: 40000000,
         report: "BR",
         date: new Date(),
@@ -49,8 +55,27 @@ export const transactionState:ITransaction[] = [
 
 export const transactionReducer = createReducer(
     transactionState,
-    on(updateTransaction, (state) => state),
-    on(deleteTransaction, (state) => state),
-    on(getTransaction, (state) => state)
+    on(TransactionActions.addTransaction, (state, trransaction) => [...state, trransaction]),
+    on(TransactionActions.deleteTransaction, (state, trransaction) => {
+      return state.map((transaction) => {
+        if(transaction.id !== trransaction.id){
+          return transaction
+        }
+        return {
+          ...transaction,
+        }
+      })
+    }),
+    on(TransactionActions.updateTransaction, (state, trransaction) => {
+      return state.map(transaction => {
+        if(transaction.id !== trransaction.id){
+          return transaction
+        }
+        return {
+          ...transaction,
+          ...trransaction
+        }
+      })
+    })
 )
 

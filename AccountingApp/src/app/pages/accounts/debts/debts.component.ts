@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-debts',
@@ -15,9 +17,16 @@ export class DebtsComponent implements OnInit {
   showAddForm: boolean = false
   buttonAction: string = "Add"
 
-  constructor(private transactionService: TransactionsService) {}
+  transactions$: Observable<ITransaction[]> = this.transactionStore.select(state => state.transactions)
+
+  constructor(
+    private transactionService: TransactionsService,
+    private transactionStore: Store<{transactions: ITransaction[]}>
+  ) {}
 
   ngOnInit(): void {
+
+    this.transactionStore.dispatch({type:'[Transaction Component] loadTransaction'})
     this.transactionService.getTransactions().subscribe((transactions) => {
 
       this.transactions = transactions

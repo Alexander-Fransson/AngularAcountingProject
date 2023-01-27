@@ -14,6 +14,8 @@ import { AddTransactionComponent } from './pages/accounts/add-transaction/add-tr
 import { DebtsComponent } from './pages/accounts/debts/debts.component';
 import { StoreModule } from '@ngrx/store';
 import { transactionReducer } from './state/transactions/transactions.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TransactionEffects } from './state/transactions/transactions.effects';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false}),
-    StoreModule.forRoot({transactions: transactionReducer})
+    StoreModule.forRoot({transactions: transactionReducer}),
+    EffectsModule.forRoot([TransactionEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
