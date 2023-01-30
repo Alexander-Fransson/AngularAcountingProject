@@ -10,35 +10,35 @@ functions here are purely experimental.
 
 export const transactionState:ITransaction[] = [
       {
-        id: 2,
+        id: "2",
         happening: "Slavery",
         amount: -60000,
         report: "RR",
         date: new Date(),
       },
       {
-        id: 3,
+        id: "3",
         happening: "Ransom",
         amount: -10000,
         report: "BR",
         date: new Date(),
       },
       {
-        id: 4,
+        id: "4",
         happening: "Raiding Booty",
         amount: 70000,
         report: "RR",
         date: new Date(),
       },
       {
-        id: 1,
+        id: "1",
         happening: "Moms credit card",
         amount: 40000,
         report: "BR",
         date: new Date(),
       },
       {
-        id: 5,
+        id: "5",
         happening: "Entertainment",
         amount: -4,
         report: "BR",
@@ -49,13 +49,14 @@ export const transactionState:ITransaction[] = [
         amount: 40000000,
         report: "BR",
         date: new Date(),
-        id: 6
+        id: "6"
       }
 ]
 
 export const transactionReducer = createReducer(
     transactionState,
     on(TransactionActions.addTransaction, (state, trransaction) => [...state, trransaction]),
+
     on(TransactionActions.deleteTransaction, (state, trransaction) => {
       return state.map((transaction) => {
         if(transaction.id !== trransaction.id){
@@ -66,6 +67,7 @@ export const transactionReducer = createReducer(
         }
       })
     }),
+
     on(TransactionActions.updateTransaction, (state, trransaction) => {
       return state.map(transaction => {
         if(transaction.id !== trransaction.id){
@@ -76,6 +78,25 @@ export const transactionReducer = createReducer(
           ...trransaction
         }
       })
+    }),
+
+    on(TransactionActions.getTransactions, (state) => {
+      return [...state, 
+        {
+          happening: "Costa concord",
+          amount: 40000000,
+          report: "BR",
+          date: new Date(),
+          id: "8"
+        },
+        {
+          happening: "Costa concord",
+          amount: 40000000,
+          report: "BR",
+          date: new Date(),
+          id: "9"
+        }
+      ]
     })
 )
 

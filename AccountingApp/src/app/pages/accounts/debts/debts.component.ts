@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import * as selectors from '../../../state/transactions/transactions.selectors'
+import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-debts',
@@ -17,12 +19,14 @@ export class DebtsComponent implements OnInit {
   showAddForm: boolean = false
   buttonAction: string = "Add"
 
-  transactions$: Observable<ITransaction[]> = this.transactionStore.select(state => state.transactions)
+  transactions$: Observable<ITransaction[]> = this.transactionStore.pipe(select(selectors.selectallTransactions))
 
   constructor(
     private transactionService: TransactionsService,
-    private transactionStore: Store<{transactions: ITransaction[]}>
-  ) {}
+    private transactionStore: Store<AppState>
+  ) {
+    this.transactionStore.pipe(select(selectors.selectallTransactions))
+  }
 
   ngOnInit(): void {
 

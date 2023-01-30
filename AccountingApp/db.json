@@ -36,11 +36,32 @@
       "date": "made sometime ago"
     },
     {
-      "happening": "Real Capital",
-      "amount": 40000000,
+      "happening": "Concoring the world",
+      "amount": -800,
       "report": "BR",
-      "date": "2023-01-26T09:36:55.730Z",
-      "id": "clFMcSQ"
+      "date": "2023-01-30T08:56:05.584Z",
+      "id": "yEnQoSH"
+    },
+    {
+      "happening": "I spent nothing, did nothing, never ventured nor gained",
+      "amount": 300,
+      "report": "BR",
+      "date": "2023-01-30T08:58:32.857Z",
+      "id": "AFHskui"
+    },
+    {
+      "happening": "Bought a Cola",
+      "amount": 300,
+      "report": "BR",
+      "date": "2023-01-30T09:01:21.611Z",
+      "id": "uWkFsaI"
+    },
+    {
+      "happening": "Real Capital",
+      "amount": 700000000,
+      "report": "BR",
+      "date": "2023-01-30T09:03:04.346Z",
+      "id": "aJlPt5U"
     }
   ]
 }

@@ -1,5 +1,5 @@
 export interface ITransaction {
-    id?:number,
+    id?:string,
     happening: string,
     amount: number,
     report: "RR" | "BR",

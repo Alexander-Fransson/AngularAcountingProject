@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
-import { updateTransaction } from 'src/app/state/transactions/transactions.actions';
 
 @Component({
   selector: 'app-transction',
@@ -36,10 +35,6 @@ export class TransctionComponent implements OnInit, OnDestroy{
   }
 
   updateTransaction():void{
-
-    //Trying to learn ngrx
-    this.store.dispatch(updateTransaction(this.transactionData))
-
     this.transactionData.happening = this.happening
     this.transactionData.amount = this.amount
 
