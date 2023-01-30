@@ -6,6 +6,6 @@ export const updateTransaction = createAction('[Transaction Component] UpdateTra
 export const deleteTransaction = createAction('[Transaction Component] DeleteTransaction', props<ITransaction>())
 export const loadTransactions = createAction('[Transaction Component] loadTransaction')
 
-export const getTransactions = createAction('[Transaction API] loadTransaction')
+export const getTransactions = createAction('[Transaction API] loadTransaction', props<{loadedTransactions: ITransaction[]}>)
 export const transactionError = createAction('[Transaction API] Load Error')
 export const deletedTransaction = createAction('[Transaction API] Deleted Transaction')

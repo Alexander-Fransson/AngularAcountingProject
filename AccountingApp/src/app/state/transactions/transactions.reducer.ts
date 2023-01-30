@@ -8,7 +8,12 @@ Right now I have no need for the handeling of page state outside of components s
 functions here are purely experimental.
 ****************************************************************************************/
 
-export const transactionState:ITransaction[] = [
+interface ITransactionState {
+  transactionState: ITransaction[]
+}
+
+export const transactionState:ITransactionState = {
+  transactionState: [
       {
         id: "2",
         happening: "Slavery",
@@ -51,52 +56,16 @@ export const transactionState:ITransaction[] = [
         date: new Date(),
         id: "6"
       }
-]
+]}
 
 export const transactionReducer = createReducer(
-    transactionState,
-    on(TransactionActions.addTransaction, (state, trransaction) => [...state, trransaction]),
-
-    on(TransactionActions.deleteTransaction, (state, trransaction) => {
-      return state.map((transaction) => {
-        if(transaction.id !== trransaction.id){
-          return transaction
-        }
-        return {
-          ...transaction,
-        }
-      })
-    }),
-
-    on(TransactionActions.updateTransaction, (state, trransaction) => {
-      return state.map(transaction => {
-        if(transaction.id !== trransaction.id){
-          return transaction
-        }
-        return {
-          ...transaction,
-          ...trransaction
-        }
-      })
-    }),
-
-    on(TransactionActions.getTransactions, (state) => {
-      return [...state, 
-        {
-          happening: "Costa concord",
-          amount: 40000000,
-          report: "BR",
-          date: new Date(),
-          id: "8"
-        },
-        {
-          happening: "Costa concord",
-          amount: 40000000,
-          report: "BR",
-          date: new Date(),
-          id: "9"
-        }
-      ]
-    })
+    transactionState, 
+    on(TransactionActions.getTransactions, (state) => ({...state, transactionState: [...state.transactionState, {
+      id: "§",
+      happening: "Costa concordia",
+      amount: 45,
+      report: "BR",
+      date: new Date()
+  } ]}))
 )
 

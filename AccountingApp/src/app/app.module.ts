@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +16,7 @@ import { StoreModule } from '@ngrx/store';
 import { transactionReducer } from './state/transactions/transactions.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TransactionEffects } from './state/transactions/transactions.effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -38,8 +39,9 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false}),
-    StoreModule.forRoot({transactions: transactionReducer}),
-    EffectsModule.forRoot([TransactionEffects])
+    StoreModule.forRoot({transactionState: transactionReducer }),
+    EffectsModule.forRoot([TransactionEffects]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
   bootstrap: [AppComponent]

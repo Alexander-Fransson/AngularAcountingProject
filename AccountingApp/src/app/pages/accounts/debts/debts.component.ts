@@ -33,6 +33,8 @@ export class DebtsComponent implements OnInit {
     this.transactionStore.dispatch({type:'[Transaction Component] loadTransaction'})
     this.transactionService.getTransactions().subscribe((transactions) => {
 
+      console.log(this.transactions$)
+
       this.transactions = transactions
       this.debit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
       this.credit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
