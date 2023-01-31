@@ -17,6 +17,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { TransactionEffects } from './state/transactions/transactions.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TransactionModule } from './state/transactions/transaction.module';
+import { BalanceModuel } from './state/balancereport/balancereport.module';
+import { BalanceEffects } from './state/balancereport/balancereport.effects';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {enableTracing: false}),
     StoreModule.forRoot({}),
     TransactionModule,
-    EffectsModule.forRoot([TransactionEffects]),
+    BalanceModuel,
+    EffectsModule.forRoot([TransactionEffects, BalanceEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],

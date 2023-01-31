@@ -5,6 +5,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as selectors from '../../../state/transactions/transactions.selectors'
 import { AppState } from 'src/app/state/app.state';
+import { balanceSelector,  } from 'src/app/state/balancereport/balancereport.selectors';
+import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';
 
 @Component({
   selector: 'app-debts',
@@ -14,29 +16,25 @@ import { AppState } from 'src/app/state/app.state';
 export class DebtsComponent implements OnInit {
 
   transactions: ITransaction[] = []
-  debit: ITransaction[] = []
-  credit: ITransaction[] = []
+  debit$: Observable<ITransaction[]> = this.store.pipe(select(balanceSelector.selectNegtiveBalance))
+  credit$: Observable<ITransaction[]> = this.store.pipe(select(balanceSelector.selectPositiveBalance))
   showAddForm: boolean = false
   buttonAction: string = "Add"
-  transactions$: Observable<ITransaction[]> = this.transactionStore.pipe(select(selectors.selectAllTransactions))
 
   constructor(
     private transactionService: TransactionsService,
-    private transactionStore: Store<AppState>
+    private store: Store<AppState>
   ) {
-    this.transactionStore.pipe(select(selectors.selectAllTransactions))
+    //this.transactionStore.pipe(select(selectors.selectAllTransactions))
   }
 
   ngOnInit(): void {
 
-    this.transactionStore.dispatch({type:'[Transaction Component] loadTransaction'})
+    this.store.dispatch(balanceActions.requestBalanceReport())
+    //this.transactionStore.dispatch({type:'[Transaction Component] loadTransaction'})
     this.transactionService.getTransactions().subscribe((transactions) => {
 
-      console.log(this.transactions$)
-
       this.transactions = transactions
-      this.debit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
-      this.credit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
     })
   }
   toggleAddForm(){
@@ -52,8 +50,6 @@ export class DebtsComponent implements OnInit {
     this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
 
       this.transactions.push(newTransaction)
-      this.debit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
-      this.credit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
     })
   }
   onTransactionDeletion(deathrowTransaction: ITransaction){

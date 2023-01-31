@@ -1,6 +1,5 @@
 import { createSelector, createFeatureSelector } from "@ngrx/store";
 import { AppState, ITransactionState } from "../app.state";
-import { ITransaction } from "src/app/ITransaction";
 import { transactionFeatureKey } from "./transactions.reducer";
 
 export const selectTransactions = createFeatureSelector<ITransactionState>(transactionFeatureKey)

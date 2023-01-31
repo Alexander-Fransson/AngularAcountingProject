@@ -5,9 +5,14 @@ export interface ITransactionState {
     transactionState: ITransaction[]
 }
 
+export interface IBalanceReport {
+    positveBalance: ITransaction[],
+    negativeBalance: ITransaction[]
+}
+
 export interface AppState {
-    transactionState: ITransaction
-    allTransactions: ITransaction[]
+    allTransactions: ITransaction[],
+    balanceReport: IBalanceReport
 }
 
 

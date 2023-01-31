@@ -9,7 +9,7 @@ import { TransactionsService } from 'src/app/services/transactions.service';
   templateUrl: './transction.component.html',
   styleUrls: ['./transction.component.css']
 })
-export class TransctionComponent implements OnInit, OnDestroy{
+export class TransctionComponent implements OnInit {
   @Input() transactionData!: ITransaction
   @Output() deathrowTransaction = new EventEmitter()
   showChangeForm:boolean = false 
@@ -25,15 +25,9 @@ export class TransctionComponent implements OnInit, OnDestroy{
     this.happening = this.transactionData.happening
     this.amount = this.transactionData.amount
   }
-
-  ngOnDestroy(): void {
-      this.dataSubscription.unsubscribe()
-  }
-
   showForm():void{
     this.showChangeForm = !this.showChangeForm
   }
-
   updateTransaction():void{
     this.transactionData.happening = this.happening
     this.transactionData.amount = this.amount
@@ -42,8 +36,13 @@ export class TransctionComponent implements OnInit, OnDestroy{
     .subscribe((transaction) => (this.transactionData = transaction));
     this.showForm()
   }
-
   deleteTransaction():void{
     this.deathrowTransaction.emit(this.transactionData)
   }
 }
+
+
+// You inheret this from OnDestroy and it removes the subscription from memory quite like an event
+  // ngOnDestroy(): void {
+  //     this.dataSubscription.unsubscribe()
+  // }
