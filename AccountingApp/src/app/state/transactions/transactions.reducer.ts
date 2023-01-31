@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import * as TransactionActions from "./transactions.actions"
-import { ITransaction } from "src/app/ITransaction";
+import { ITransactionState } from "../app.state";
 
 /****************************************************************************************
 Here states specific to the page, unrelated to the server are stored and centraly managed
@@ -8,9 +8,7 @@ Right now I have no need for the handeling of page state outside of components s
 functions here are purely experimental.
 ****************************************************************************************/
 
-interface ITransactionState {
-  transactionState: ITransaction[]
-}
+export const transactionFeatureKey = 'transaction'
 
 export const transactionState:ITransactionState = {
   transactionState: [

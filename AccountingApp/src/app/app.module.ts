@@ -13,10 +13,10 @@ import { ButtonComponent } from './pages/accounts/button/button.component';
 import { AddTransactionComponent } from './pages/accounts/add-transaction/add-transaction.component';
 import { DebtsComponent } from './pages/accounts/debts/debts.component';
 import { StoreModule } from '@ngrx/store';
-import { transactionReducer } from './state/transactions/transactions.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TransactionEffects } from './state/transactions/transactions.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { TransactionModule } from './state/transactions/transaction.module';
 
 const appRoutes: Routes = [
   {path: '', component: AccountsComponent},
@@ -39,7 +39,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false}),
-    StoreModule.forRoot({transactionState: transactionReducer }),
+    StoreModule.forRoot({}),
+    TransactionModule,
     EffectsModule.forRoot([TransactionEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],

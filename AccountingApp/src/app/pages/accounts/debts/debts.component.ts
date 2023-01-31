@@ -18,14 +18,13 @@ export class DebtsComponent implements OnInit {
   credit: ITransaction[] = []
   showAddForm: boolean = false
   buttonAction: string = "Add"
-
-  transactions$: Observable<ITransaction[]> = this.transactionStore.pipe(select(selectors.selectallTransactions))
+  transactions$: Observable<ITransaction[]> = this.transactionStore.pipe(select(selectors.selectAllTransactions))
 
   constructor(
     private transactionService: TransactionsService,
     private transactionStore: Store<AppState>
   ) {
-    this.transactionStore.pipe(select(selectors.selectallTransactions))
+    this.transactionStore.pipe(select(selectors.selectAllTransactions))
   }
 
   ngOnInit(): void {
@@ -40,7 +39,6 @@ export class DebtsComponent implements OnInit {
       this.credit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
     })
   }
-
   toggleAddForm(){
     this.showAddForm = !this.showAddForm
     if(this.showAddForm){
@@ -50,7 +48,6 @@ export class DebtsComponent implements OnInit {
       this.buttonAction = "Add"
     }
   }
-
   onAddedTransaction(newTransaction: ITransaction){
     this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
 
@@ -59,7 +56,6 @@ export class DebtsComponent implements OnInit {
       this.credit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
     })
   }
-
   onTransactionDeletion(deathrowTransaction: ITransaction){
     this.transactionService.deleteTransaction(deathrowTransaction).subscribe(() => {
       this.ngOnInit()

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { map, mergeMap, catchError, exhaustMap } from 'rxjs/operators';
 import { TransactionsService } from "src/app/services/transactions.service";
-import { deleteTransaction, loadTransactions, deletedTransaction, transactionError } from "./transactions.actions";
+import * as TransactionActions from "./transactions.actions";
 import { ITransaction } from "src/app/ITransaction";
 
 @Injectable()
@@ -12,11 +12,11 @@ export class TransactionEffects {
   constructor(private actions$: Actions, private transactionService: TransactionsService) {}
 
   loadTransactions$ = createEffect(() => this.actions$.pipe(
-    ofType(loadTransactions),
+    ofType( TransactionActions.loadTransactions),
     mergeMap(() => this.transactionService.getTransactions()
       .pipe(
         map(events => ({ type: '[Transaction API] loadTransaction', payload: events })),
-        catchError(() => of(transactionError))
+        catchError(() => of(TransactionActions.transactionError))
       )
     ))
   );
