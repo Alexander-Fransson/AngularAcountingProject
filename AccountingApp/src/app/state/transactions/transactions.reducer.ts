@@ -58,12 +58,6 @@ export const transactionState:ITransactionState = {
 
 export const transactionReducer = createReducer(
     transactionState, 
-    on(TransactionActions.getTransactions, (state) => ({...state, transactionState: [...state.transactionState, {
-      id: "§",
-      happening: "Costa concordia",
-      amount: 45,
-      report: "BR",
-      date: new Date()
-  } ]}))
+    on(TransactionActions.getTransactions, (state, { loadedTransactions }) => ({...state, transactionState: loadedTransactions}))
 )
 

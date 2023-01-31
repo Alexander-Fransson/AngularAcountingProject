@@ -4,7 +4,6 @@ import { of } from "rxjs";
 import { map, mergeMap, catchError, exhaustMap } from 'rxjs/operators';
 import { TransactionsService } from "src/app/services/transactions.service";
 import * as TransactionActions from "./transactions.actions";
-import { ITransaction } from "src/app/ITransaction";
 
 @Injectable()
 export class TransactionEffects {
@@ -15,7 +14,7 @@ export class TransactionEffects {
     ofType( TransactionActions.loadTransactions),
     mergeMap(() => this.transactionService.getTransactions()
       .pipe(
-        map(events => ({ type: '[Transaction API] loadTransaction', payload: events })),
+        map(events => (TransactionActions.getTransactions({loadedTransactions: events}))),
         catchError(() => of(TransactionActions.transactionError))
       )
     ))
