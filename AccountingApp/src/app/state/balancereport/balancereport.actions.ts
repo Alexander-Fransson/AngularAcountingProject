@@ -9,6 +9,12 @@ export const balanceActions = {
         '[BalanceReport] Responds With Report',
         props<{transactions: ITransaction[]}>()
     ),
+
+    addTransactionToBalanceReport: createAction(
+        '[balanceReport] Add Trnsaction',
+        props<{transaction: ITransaction}>
+    ),
+
     balanceReportLoadError: createAction(
         '[BalanceReport] Responds With Error',
         props<{message: String}>()

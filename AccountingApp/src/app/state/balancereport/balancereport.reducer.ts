@@ -22,13 +22,11 @@ export const balanceReducer = createReducer(
     initialBalanceReport, 
     on(
         balanceActions.loadBalanceReport,
-        (state, { transactions }) => {
-        console.log(state.positveBalance)
-        return {
+        (state, { transactions }) => ({
             ...state,
             positveBalance: transactions.filter((transaction: ITransaction) => transaction.amount > 0),
             negativeBalance: transactions.filter((transactions: ITransaction) => transactions.amount < 0)
-        }}    
+        })    
     ),
     on(
         balanceActions.balanceReportLoadError,

@@ -24,14 +24,11 @@ export class DebtsComponent implements OnInit {
   constructor(
     private transactionService: TransactionsService,
     private store: Store<AppState>
-  ) {
-    //this.transactionStore.pipe(select(selectors.selectAllTransactions))
-  }
+  ) {}
 
   ngOnInit(): void {
 
     this.store.dispatch(balanceActions.requestBalanceReport())
-    //this.transactionStore.dispatch({type:'[Transaction Component] loadTransaction'})
     this.transactionService.getTransactions().subscribe((transactions) => {
 
       this.transactions = transactions
