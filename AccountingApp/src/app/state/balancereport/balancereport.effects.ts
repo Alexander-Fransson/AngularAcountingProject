@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { createReducer } from "@ngrx/store";
-import { catchError, mergeMap, map, of } from "rxjs";
+import { catchError, mergeMap, map, of, exhaustMap } from "rxjs";
 import { TransactionsService } from "src/app/services/transactions.service";
 import { balanceActions } from "./balancereport.actions";
 
@@ -25,10 +25,10 @@ export class BalanceEffects {
         ))
     ))
 
-    //Add an action to server and then load from it
-
     // addTransactionToBalance$ = createEffect(() => this.actions$.pipe(
-    //     ofType(balanceActions.addTransactionToBalanceReport),
-
+    //     ofType(balanceActions.addTransactionToBalanceReport), 
+    //     exhaustMap()?
     // ))
+
+    //Add a transaction to server and then load from it look up how to do it.
 }
