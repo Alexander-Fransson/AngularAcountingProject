@@ -21,7 +21,6 @@
             <app-transction 
             *ngFor="let transaction of debit$ | async"
             [transactionData]="transaction"
-            (deathrowTransaction)="onTransactionDeletion($event)"
             ></app-transction>
         </section>
     
@@ -31,7 +30,6 @@
             <app-transction 
             *ngFor="let transaction of credit$ | async"
             [transactionData]="transaction"
-            (deathrowTransaction)="onTransactionDeletion($event)"
             ></app-transction>
 
         </section>

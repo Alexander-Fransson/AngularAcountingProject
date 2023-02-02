@@ -41,9 +41,7 @@ export class DebtsComponent implements OnInit {
     this.store.dispatch(balanceActions.addTransactionToBalanceReport({transaction: {...newTransaction, amount: newTransaction.amount*-1}}))
     
   }
-  onTransactionDeletion(deathrowTransaction: ITransaction){
-    this.transactionService.deleteTransaction(deathrowTransaction).subscribe(() => {
-      this.ngOnInit()
-    })
+  onTransactionDeletion(deathrowTransactionId: String){
+    this.store.dispatch(balanceActions.requestDeletion({ id: deathrowTransactionId}))
   }
 }

@@ -40,8 +40,9 @@ export class TransctionComponent implements OnInit {
     
     this.showForm()
   }
-  deleteTransaction():void{
-    this.deathrowTransaction.emit(this.transactionData)
+
+  deleteTransaction(){
+    this.store.dispatch(balanceActions.requestDeletion({id: this.transactionData.id!}))
   }
 }
 

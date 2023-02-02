@@ -32,8 +32,8 @@ export class TransactionsService {
     return this.http.put<ITransaction>(url, updatedTransaction, httpOptions)
   }
 
-  deleteTransaction(deathrowTransaction:ITransaction){
-    const url = `${this.apiUrl}/${deathrowTransaction.id}`
+  deleteTransaction(deathrowTransactionId:String){
+    const url = `${this.apiUrl}/${deathrowTransactionId}`
     return this.http.delete<ITransaction>(url)
   }
 }

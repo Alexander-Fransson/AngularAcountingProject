@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
+import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-assets',
@@ -15,7 +18,7 @@ export class AssetsComponent implements OnInit {
   showAddForm: boolean = false
   buttonAction: string = "Add"
 
-  constructor(private transactionService: TransactionsService) {}
+  constructor(private transactionService: TransactionsService, private store: Store<AppState> ) {}
 
   ngOnInit(): void {
     this.transactionService.getTransactions().subscribe((transactions) => {
@@ -42,12 +45,6 @@ export class AssetsComponent implements OnInit {
       this.transactions.push(newTransaction)
       this.debit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
       this.credit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
-    })
-  }
-
-  onTransactionDeletion(deathrowTransaction: ITransaction){
-    this.transactionService.deleteTransaction(deathrowTransaction).subscribe(() => {
-      this.ngOnInit()
     })
   }
 }

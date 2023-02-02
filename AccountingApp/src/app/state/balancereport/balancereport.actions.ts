@@ -24,6 +24,15 @@ export const balanceActions = {
         props<{transaction: ITransaction}>()
     ),
 
+    requestDeletion: createAction(
+        '[BalanceReport] Request Delete',
+        props<{id: String}>()
+    ),
+    deleteFromStore: createAction(
+        '[BalanceReport] Delete From Store',
+        props<{id: String}>()
+    ),
+
     balanceReportLoadError: createAction(
         '[BalanceReport] Responds With Error',
         props<{message: String}>()

@@ -40,7 +40,6 @@ export class BalanceEffects {
         mergeMap((request) => this.transactionsService.updateTransaction(request.transaction)
         .pipe(
             map((updatedTransaction) => {
-                console.log(updatedTransaction)
                 return balanceActions.updateTransactionInStore({transaction: updatedTransaction})
             }),
             catchError(() => {
@@ -49,5 +48,22 @@ export class BalanceEffects {
         ))
     ))
 
-    //Add a transaction to server and then load from it look up how to do it.
+    deleteTransaction$ = createEffect(() => this.actions$.pipe(
+        ofType(balanceActions.requestDeletion),
+        mergeMap((request) => this.transactionsService.deleteTransaction(request.id)
+        .pipe(
+            map(event => {
+                if(event.id){
+                    return balanceActions.deleteFromStore({id: event.id})
+                }else{
+                    console.log(event.amount)
+                    return {type: "nothing"}
+                }
+            }),
+            catchError((error) => {
+                throw new Error(error)
+            })
+        ))
+    ))
+
 }

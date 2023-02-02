@@ -19,7 +19,9 @@ export const initialBalanceReport: IBalanceReport = {
 }
 
 export const balanceReducer = createReducer(
+
     initialBalanceReport, 
+
     on( balanceActions.loadBalanceReport,
         (state, { transactions }) => ({
             ...state,
@@ -31,7 +33,7 @@ export const balanceReducer = createReducer(
     on( balanceActions.balanceReportLoadError,
         (state, {message}) => {console.log(message); return {...state}}
     ),
-    
+
     on( balanceActions.updateTransactionInStore,
         (state, {transaction}) => {
             if(transaction.amount < 0){
@@ -49,5 +51,13 @@ export const balanceReducer = createReducer(
                 }
             }
         }
+    ),
+
+    on( balanceActions.deleteFromStore,
+        (state, {id}) => ({
+            ...state,
+            negativeBalance: state.negativeBalance.filter(event => event.id !== id),
+            positveBalance: state.positveBalance.filter(event => event.id !== id)
+        })
     )
 )

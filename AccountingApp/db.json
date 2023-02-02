@@ -29,60 +29,11 @@
       "date": "made sometime ago"
     },
     {
-      "happening": "I spent nothing, did nothing, never ventured nor gained",
-      "amount": -4,
-      "report": "BR",
-      "id": "NPRKEPi",
-      "date": "made sometime ago"
-    },
-    {
-      "happening": "Concoring the world",
-      "amount": -800,
-      "report": "BR",
-      "date": "2023-01-30T08:56:05.584Z",
-      "id": "yEnQoSH"
-    },
-    {
-      "happening": "I spent nothing, did nothing, never ventured nor gained",
-      "amount": 300,
-      "report": "BR",
-      "date": "2023-01-30T08:58:32.857Z",
-      "id": "AFHskui"
-    },
-    {
-      "happening": "Bought a Colae",
-      "amount": -300,
-      "report": "BR",
-      "date": "2023-01-30T09:01:21.611Z",
-      "id": "uWkFsaI"
-    },
-    {
       "happening": "Real Capital",
       "amount": 700000000,
       "report": "BR",
       "date": "2023-01-30T09:03:04.346Z",
       "id": "aJlPt5U"
-    },
-    {
-      "happening": "Real Capital",
-      "amount": 89008,
-      "report": "BR",
-      "date": "2023-02-02T11:35:25.117Z",
-      "id": "to5frdj"
-    },
-    {
-      "happening": "Concoring the world",
-      "amount": 300,
-      "report": "BR",
-      "date": "2023-02-02T11:36:56.527Z",
-      "id": "S1o3Mp2"
-    },
-    {
-      "happening": "Bought a Cola",
-      "amount": -600000,
-      "report": "BR",
-      "date": "2023-02-02T11:45:48.450Z",
-      "id": "kh3r6X2"
     }
   ]
 }
