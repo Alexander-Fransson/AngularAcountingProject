@@ -11,8 +11,12 @@ export const balanceActions = {
     ),
 
     addTransactionToBalanceReport: createAction(
-        '[balanceReport] Add Trnsaction',
-        props<{transaction: ITransaction}>
+        '[BalanceReport] Add Trnsaction',
+        props<{transaction: ITransaction}>()
+    ),
+    sendTransactionToStore: createAction(
+        '[BalanceReport] Post To Store',
+        props<{transaction: ITransaction}>()
     ),
 
     balanceReportLoadError: createAction(

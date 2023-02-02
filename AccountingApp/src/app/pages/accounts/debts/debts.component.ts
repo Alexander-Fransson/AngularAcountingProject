@@ -15,7 +15,6 @@ import { balanceActions } from 'src/app/state/balancereport/balancereport.action
 })
 export class DebtsComponent implements OnInit {
 
-  transactions: ITransaction[] = []
   debit$: Observable<ITransaction[]> = this.store.pipe(select(balanceSelector.selectNegtiveBalance))
   credit$: Observable<ITransaction[]> = this.store.pipe(select(balanceSelector.selectPositiveBalance))
   showAddForm: boolean = false
@@ -27,12 +26,7 @@ export class DebtsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.store.dispatch(balanceActions.requestBalanceReport())
-    this.transactionService.getTransactions().subscribe((transactions) => {
-
-      this.transactions = transactions
-    })
   }
   toggleAddForm(){
     this.showAddForm = !this.showAddForm
@@ -44,10 +38,11 @@ export class DebtsComponent implements OnInit {
     }
   }
   onAddedTransaction(newTransaction: ITransaction){
-    this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
+    this.store.dispatch(balanceActions.addTransactionToBalanceReport({transaction: newTransaction}))
+    // this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
 
-      this.transactions.push(newTransaction)
-    })
+    //   this.transactions.push(newTransaction)
+    // })
   }
   onTransactionDeletion(deathrowTransaction: ITransaction){
     this.transactionService.deleteTransaction(deathrowTransaction).subscribe(() => {
