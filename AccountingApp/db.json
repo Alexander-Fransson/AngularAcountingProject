@@ -50,8 +50,8 @@
       "id": "AFHskui"
     },
     {
-      "happening": "Bought a Cola",
-      "amount": 300,
+      "happening": "Bought a Colae",
+      "amount": -300,
       "report": "BR",
       "date": "2023-01-30T09:01:21.611Z",
       "id": "uWkFsaI"
@@ -76,6 +76,13 @@
       "report": "BR",
       "date": "2023-02-02T11:36:56.527Z",
       "id": "S1o3Mp2"
+    },
+    {
+      "happening": "Bought a Cola",
+      "amount": -600000,
+      "report": "BR",
+      "date": "2023-02-02T11:45:48.450Z",
+      "id": "kh3r6X2"
     }
   ]
 }

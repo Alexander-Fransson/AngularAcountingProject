@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
+import { AppState } from 'src/app/state/app.state';
+import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';
 
 @Component({
   selector: 'app-transction',
@@ -19,7 +21,7 @@ export class TransctionComponent implements OnInit {
 
   storedTransactions$ = Observable<ITransaction[]> 
 
-  constructor(private transactionService: TransactionsService, private store: Store<ITransaction>) {}
+  constructor(private transactionService: TransactionsService, private store: Store<AppState>) {}
 
   ngOnInit():void{
     this.happening = this.transactionData.happening
@@ -29,11 +31,13 @@ export class TransctionComponent implements OnInit {
     this.showChangeForm = !this.showChangeForm
   }
   updateTransaction():void{
-    this.transactionData.happening = this.happening
-    this.transactionData.amount = this.amount
 
-    this.dataSubscription = this.transactionService.updateTransaction(this.transactionData)
-    .subscribe((transaction) => (this.transactionData = transaction));
+    this.store.dispatch(balanceActions.requestUpdate({transaction: {
+      ...this.transactionData,
+      happening: this.happening,
+      amount: this.amount
+    }}))
+    
     this.showForm()
   }
   deleteTransaction():void{

@@ -35,5 +35,19 @@ export class BalanceEffects {
         ))
     ))
 
+    updateBalanceReport$ = createEffect(() => this.actions$.pipe(
+        ofType(balanceActions.requestUpdate),
+        mergeMap((request) => this.transactionsService.updateTransaction(request.transaction)
+        .pipe(
+            map((updatedTransaction) => {
+                console.log(updatedTransaction)
+                return balanceActions.updateTransactionInStore({transaction: updatedTransaction})
+            }),
+            catchError(() => {
+                throw new Error('An error has ocurred in the update effect')
+            })
+        ))
+    ))
+
     //Add a transaction to server and then load from it look up how to do it.
 }

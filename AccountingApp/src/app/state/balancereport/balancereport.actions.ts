@@ -14,8 +14,13 @@ export const balanceActions = {
         '[BalanceReport] Add Trnsaction',
         props<{transaction: ITransaction}>()
     ),
-    sendTransactionToStore: createAction(
-        '[BalanceReport] Post To Store',
+    
+    requestUpdate: createAction(
+        '[BalanceReport] Request Update',
+        props<{transaction: ITransaction}>()
+    ),
+    updateTransactionInStore: createAction(
+        '[BalanceReport] Update In Store',
         props<{transaction: ITransaction}>()
     ),
 

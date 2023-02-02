@@ -38,11 +38,8 @@ export class DebtsComponent implements OnInit {
     }
   }
   onAddedTransaction(newTransaction: ITransaction){
-    this.store.dispatch(balanceActions.addTransactionToBalanceReport({transaction: newTransaction}))
-    // this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
-
-    //   this.transactions.push(newTransaction)
-    // })
+    this.store.dispatch(balanceActions.addTransactionToBalanceReport({transaction: {...newTransaction, amount: newTransaction.amount*-1}}))
+    
   }
   onTransactionDeletion(deathrowTransaction: ITransaction){
     this.transactionService.deleteTransaction(deathrowTransaction).subscribe(() => {
