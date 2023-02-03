@@ -56,8 +56,7 @@ export class BalanceEffects {
                 if(event.id){
                     return balanceActions.deleteFromStore({id: event.id})
                 }else{
-                    console.log(event.amount)
-                    return {type: "nothing"}
+                    throw new Error("Event lacks Id")
                 }
             }),
             catchError((error) => {

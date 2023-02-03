@@ -21,7 +21,10 @@ export class TransctionComponent implements OnInit {
 
   storedTransactions$ = Observable<ITransaction[]> 
 
-  constructor(private transactionService: TransactionsService, private store: Store<AppState>) {}
+  constructor(
+    private transactionService: TransactionsService, 
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit():void{
     this.happening = this.transactionData.happening
@@ -40,7 +43,6 @@ export class TransctionComponent implements OnInit {
     
     this.showForm()
   }
-
   deleteTransaction(){
     this.store.dispatch(balanceActions.requestDeletion({id: this.transactionData.id!}))
   }

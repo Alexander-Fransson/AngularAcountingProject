@@ -8,13 +8,6 @@
       "date": "made sometime ago"
     },
     {
-      "id": "3",
-      "happening": "Seed Investment",
-      "amount": "-10000",
-      "report": "BR",
-      "date": "made sometime ago"
-    },
-    {
       "id": "4",
       "happening": "Profit",
       "amount": "70000",
@@ -22,18 +15,25 @@
       "date": "made sometime ago"
     },
     {
-      "id": "5",
-      "happening": "Savings",
-      "amount": "40000",
+      "happening": "Bought a Cola",
+      "amount": 700,
       "report": "BR",
-      "date": "made sometime ago"
+      "date": "2023-02-03T08:23:40.632Z",
+      "id": "yYioBD8"
     },
     {
-      "happening": "Real Capital",
-      "amount": 700000000,
+      "happening": "I spent nothing, did nothing, never ventured nor gained",
+      "amount": -70009,
       "report": "BR",
-      "date": "2023-01-30T09:03:04.346Z",
-      "id": "aJlPt5U"
+      "date": "2023-02-03T08:23:40.632Z",
+      "id": "fPHP6zv"
+    },
+    {
+      "happening": "Seed investment",
+      "amount": 700,
+      "report": "BR",
+      "date": "2023-02-03T09:07:01.245Z",
+      "id": "qbE7U_7"
     }
   ]
 }

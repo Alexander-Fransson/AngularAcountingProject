@@ -1,6 +1,6 @@
 import { Injectable,  } from '@angular/core';
 import { ITransaction } from '../ITransaction';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const httpOptions = {
@@ -34,6 +34,7 @@ export class TransactionsService {
 
   deleteTransaction(deathrowTransactionId:String){
     const url = `${this.apiUrl}/${deathrowTransactionId}`
-    return this.http.delete<ITransaction>(url)
+    this.http.delete<ITransaction>(url).subscribe()
+    return of({id: deathrowTransactionId});
   }
 }
