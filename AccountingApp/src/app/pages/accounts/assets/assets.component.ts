@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
+import { Observable } from 'rxjs';
 import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
+import { balanceSelector } from 'src/app/state/balancereport/balancereport.selectors';
 
 @Component({
   selector: 'app-assets',
@@ -12,23 +14,19 @@ import { AppState } from 'src/app/state/app.state';
 })
 export class AssetsComponent implements OnInit {
 
-  transactions: ITransaction[] = []
-  debit: ITransaction[] = []
-  credit: ITransaction[] = []
+  credit$: Observable<ITransaction[]> = this.store.pipe(select(balanceSelector.selectNegtiveBalance))
+  debit$: Observable<ITransaction[]> = this.store.pipe(select(balanceSelector.selectPositiveBalance))
   showAddForm: boolean = false
   buttonAction: string = "Add"
 
-  constructor(private transactionService: TransactionsService, private store: Store<AppState> ) {}
+  constructor(
+    private transactionService: TransactionsService,
+    private store: Store<AppState>
+  ) {}
 
   ngOnInit(): void {
-    this.transactionService.getTransactions().subscribe((transactions) => {
-
-      this.transactions = transactions
-      this.debit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
-      this.credit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
-    })
+    this.store.dispatch(balanceActions.requestBalanceReport())
   }
-
   toggleAddForm(){
     this.showAddForm = !this.showAddForm
     if(this.showAddForm){
@@ -38,13 +36,11 @@ export class AssetsComponent implements OnInit {
       this.buttonAction = "Add"
     }
   }
-
   onAddedTransaction(newTransaction: ITransaction){
-    this.transactionService.addTransaction(newTransaction).subscribe((newTransaction) => {
-
-      this.transactions.push(newTransaction)
-      this.debit = this.transactions.filter(transaction => transaction.amount > 0 && transaction.report == "BR")
-      this.credit = this.transactions.filter(transaction => transaction.amount < 0 && transaction.report == "BR")
-    })
+    this.store.dispatch(balanceActions.addTransactionToBalanceReport({transaction: {...newTransaction, amount: newTransaction.amount}}))
+    
+  }
+  onTransactionDeletion(deathrowTransactionId: String){
+    this.store.dispatch(balanceActions.requestDeletion({ id: deathrowTransactionId}))
   }
 }

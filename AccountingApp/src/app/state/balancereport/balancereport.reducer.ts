@@ -16,6 +16,7 @@ export const initialBalanceReport: IBalanceReport = {
         }
     ],
     negativeBalance: []
+    //Maybe record all updates?
 }
 
 export const balanceReducer = createReducer(

@@ -19,7 +19,7 @@
         <section class="info">
             <h2 class="title green-text">Debit +</h2>
             <app-transction 
-            *ngFor="let transaction of debit"
+            *ngFor="let transaction of debit$ | async"
             [transactionData]="transaction"
             ></app-transction>
         </section>
@@ -28,7 +28,7 @@
             <h2 class="title red-text">Credit -</h2>
 
             <app-transction 
-            *ngFor="let transaction of credit"
+            *ngFor="let transaction of credit$ | async"
             [transactionData]="transaction"
             ></app-transction>
 

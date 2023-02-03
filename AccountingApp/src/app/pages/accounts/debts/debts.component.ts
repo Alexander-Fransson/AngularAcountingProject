@@ -3,7 +3,6 @@ import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import * as selectors from '../../../state/transactions/transactions.selectors'
 import { AppState } from 'src/app/state/app.state';
 import { balanceSelector,  } from 'src/app/state/balancereport/balancereport.selectors';
 import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';

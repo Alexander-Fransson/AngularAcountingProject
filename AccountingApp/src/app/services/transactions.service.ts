@@ -15,8 +15,7 @@ const httpOptions = {
 export class TransactionsService {
 
   private apiUrl = 'http://localhost:5000/transactions'
-  private transactions: ITransaction[] = [] 
-
+  
   constructor(private http:HttpClient) { }
 
   getTransactions(): Observable<ITransaction[]> {
