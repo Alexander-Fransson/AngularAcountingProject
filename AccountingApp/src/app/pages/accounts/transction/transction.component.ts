@@ -2,7 +2,6 @@ import { Component, Input, OnInit, Output, EventEmitter, OnDestroy } from '@angu
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ITransaction } from 'src/app/ITransaction';
-import { TransactionsService } from 'src/app/services/transactions.service';
 import { AppState } from 'src/app/state/app.state';
 import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';
 import { resultActions } from 'src/app/state/resultreport/resultreport.actions';

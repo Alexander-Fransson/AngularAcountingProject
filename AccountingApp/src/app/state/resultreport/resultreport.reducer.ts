@@ -47,5 +47,13 @@ export const resultReducer = createReducer(
                     positveBalance: state.positveBalance.filter(event => event.id !== transaction.id)
                 }
             }
-        })
+        }
+    ),
+
+        on( resultActions.removeTransactionFromStore, 
+            (state, {id}) => ({
+                ...state,
+                positveBalance: state.positveBalance.filter(event => event.id !== id),
+                negativeBalance: state.negativeBalance.filter(event => event.id !== id)
+            }))
 )

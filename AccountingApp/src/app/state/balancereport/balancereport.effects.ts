@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, mergeMap, map, of, exhaustMap } from "rxjs";
 import { TransactionsService } from "src/app/services/transactions.service";
+import { resultActions } from "../resultreport/resultreport.actions";
 import { balanceActions } from "./balancereport.actions";
 
 @Injectable()
@@ -55,6 +56,13 @@ export class BalanceEffects {
             map(event => {
                 if(event.id){
                     return balanceActions.deleteFromStore({id: event.id})
+                }else{
+                    throw new Error("Event lacks Id")
+                }
+            }),
+            map(event => {
+                if(event.id){
+                    return resultActions.removeTransactionFromStore({id: event.id})
                 }else{
                     throw new Error("Event lacks Id")
                 }

@@ -26,5 +26,10 @@ export const resultActions = {
     updateResultStore: createAction(
         '[ResultReport] Update Store',
         props<{transaction: ITransaction}>()
+    ),
+
+    removeTransactionFromStore: createAction(
+        '[resultReport] Delete Transaction',
+        props<{id: String}>()
     )
 }
