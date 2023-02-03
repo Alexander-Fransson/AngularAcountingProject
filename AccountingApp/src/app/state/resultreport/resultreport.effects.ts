@@ -34,4 +34,15 @@ export class ResultEffects {
             })
         ))
     ))
+
+    updateTransaction$ = createEffect(() => this.actions$.pipe(
+        ofType(resultActions.requestUpdateOnTransaction),
+        mergeMap((request) => this.transactionService.updateTransaction(request)
+        .pipe(
+            map(event => resultActions.updateResultStore({transaction: event})),
+            catchError(error => {
+                throw new Error(error)
+            })
+        ))
+    ))
 }

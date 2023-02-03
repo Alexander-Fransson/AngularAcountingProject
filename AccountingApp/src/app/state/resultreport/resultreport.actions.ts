@@ -17,5 +17,14 @@ export const resultActions = {
     getNewTransactionToStore: createAction(
         '[ResultReport] Get New Transaction To Store',
         props<{transaction: ITransaction}>()
+    ),
+
+    requestUpdateOnTransaction: createAction(
+        '[ResultReport] Request Update',
+        props<ITransaction>()
+    ),
+    updateResultStore: createAction(
+        '[ResultReport] Update Store',
+        props<{transaction: ITransaction}>()
     )
 }

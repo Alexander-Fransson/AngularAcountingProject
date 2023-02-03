@@ -5,6 +5,7 @@ import { ITransaction } from 'src/app/ITransaction';
 import { TransactionsService } from 'src/app/services/transactions.service';
 import { AppState } from 'src/app/state/app.state';
 import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';
+import { resultActions } from 'src/app/state/resultreport/resultreport.actions';
 
 @Component({
   selector: 'app-transction',
@@ -22,7 +23,6 @@ export class TransctionComponent implements OnInit {
   storedTransactions$ = Observable<ITransaction[]> 
 
   constructor(
-    private transactionService: TransactionsService, 
     private store: Store<AppState>
   ) {}
 
@@ -35,11 +35,19 @@ export class TransctionComponent implements OnInit {
   }
   updateTransaction():void{
 
-    this.store.dispatch(balanceActions.requestUpdate({transaction: {
-      ...this.transactionData,
-      happening: this.happening,
-      amount: this.amount
-    }}))
+    if(this.transactionData.report === "BR"){
+      this.store.dispatch(balanceActions.requestUpdate({transaction: {
+        ...this.transactionData,
+        happening: this.happening,
+        amount: this.amount
+      }}))
+    }else{
+      this.store.dispatch(resultActions.requestUpdateOnTransaction({
+        ...this.transactionData,
+        happening: this.happening,
+        amount: this.amount
+      }))  
+    }
     
     this.showForm()
   }

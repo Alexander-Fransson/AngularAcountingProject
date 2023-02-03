@@ -30,5 +30,22 @@ export const resultReducer = createReducer(
                 return {...state, negativeBalance: [...state.negativeBalance, transaction]}
             }
         }
-    )
+    ),
+
+    on( resultActions.updateResultStore,
+        (state, {transaction}) => {
+            if(transaction.amount > 0){
+                return {
+                    ...state, 
+                    positveBalance: [...state.positveBalance.filter(event => event.id !== transaction.id), transaction],
+                    negativeBalance: state.negativeBalance.filter(event => event.id !== transaction.id)
+                }
+            }else{
+                return {
+                    ...state, 
+                    negativeBalance: [...state.negativeBalance.filter(event => event.id !== transaction.id), transaction],
+                    positveBalance: state.positveBalance.filter(event => event.id !== transaction.id)
+                }
+            }
+        })
 )
