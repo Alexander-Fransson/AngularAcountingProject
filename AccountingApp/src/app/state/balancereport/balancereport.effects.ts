@@ -16,7 +16,7 @@ export class BalanceEffects {
         mergeMap(() => this.transactionsService.getTransactions()
         .pipe(
             map(events => (balanceActions.loadBalanceReport(
-            {transactions: events.filter((event) => event.report == "BR")}
+            {transactions: events.filter((event) => event.report === "BR")}
             ))),
             catchError(() => of(balanceActions.balanceReportLoadError({
                 message: "Failed to load"

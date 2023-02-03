@@ -8,13 +8,6 @@
       "date": "made sometime ago"
     },
     {
-      "id": "4",
-      "happening": "Profit",
-      "amount": "70000",
-      "report": "RR",
-      "date": "made sometime ago"
-    },
-    {
       "happening": "Bought a Cola",
       "amount": 700,
       "report": "BR",
@@ -48,6 +41,30 @@
       "report": "BR",
       "date": "2023-02-03T09:47:03.241Z",
       "id": "QLTRSA1"
+    },
+    {
+      "happening": "Real Capital",
+      "amount": 300,
+      "report": "RR",
+      "date": "2023-02-03T13:13:28.794Z",
+      "type": "[ResultReport] Request New Transaction",
+      "id": "xVcddUE"
+    },
+    {
+      "happening": "Capital",
+      "amount": 300,
+      "report": "RR",
+      "date": "2023-02-03T13:13:49.693Z",
+      "type": "[ResultReport] Request New Transaction",
+      "id": "wqW1Vk1"
+    },
+    {
+      "happening": "bought poop",
+      "amount": -700,
+      "report": "RR",
+      "date": "2023-02-03T13:23:33.601Z",
+      "type": "[ResultReport] Request New Transaction",
+      "id": "Yxtbkze"
     }
   ]
 }

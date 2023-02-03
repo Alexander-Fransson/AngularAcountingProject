@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ITransaction } from 'src/app/ITransaction';
-import { TransactionsService } from 'src/app/services/transactions.service';
 import { Observable } from 'rxjs';
 import { balanceActions } from 'src/app/state/balancereport/balancereport.actions';
 import { select, Store } from '@ngrx/store';
@@ -20,7 +19,6 @@ export class AssetsComponent implements OnInit {
   buttonAction: string = "Add"
 
   constructor(
-    private transactionService: TransactionsService,
     private store: Store<AppState>
   ) {}
 

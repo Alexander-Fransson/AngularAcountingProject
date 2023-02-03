@@ -10,6 +10,11 @@ export interface IBalanceReport {
     negativeBalance: ITransaction[]
 }
 
+export interface IResultReport{
+    positveBalance: ITransaction[],
+    negativeBalance: ITransaction[]
+}
+
 export interface AppState {
     allTransactions: ITransaction[],
     balanceReport: IBalanceReport
