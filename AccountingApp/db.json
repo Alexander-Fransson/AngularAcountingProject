@@ -59,7 +59,7 @@
       "id": "wqW1Vk1"
     },
     {
-      "happening": "bought poop",
+      "happening": "bought gold",
       "amount": -700,
       "report": "RR",
       "date": "2023-02-03T13:23:33.601Z",
@@ -72,6 +72,22 @@
       "report": "BR",
       "date": "2023-02-03T14:04:35.153Z",
       "id": "EQYnxy0"
+    },
+    {
+      "happening": "Bought a Cola",
+      "amount": 70000000,
+      "report": "RR",
+      "date": "2023-02-03T14:18:25.757Z",
+      "type": "[ResultReport] Request New Transaction",
+      "id": "zSkzVIc"
+    },
+    {
+      "happening": "Capital",
+      "amount": -300,
+      "report": "RR",
+      "date": "2023-02-03T14:29:03.252Z",
+      "type": "[ResultReport] Request New Transaction",
+      "id": "Qep2wq9"
     }
   ]
 }

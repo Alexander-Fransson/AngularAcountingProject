@@ -1,1 +1,35 @@
-<p>expenditure works!</p>
+<div class="info account-container">
+    <div class="scale-container info">
+        <h1 class="title">4-8. Expenditures</h1>
+        <app-button
+            (showAddForm)="toggleAddForm()"
+            action="{{buttonAction}}">
+        </app-button>
+    </div>
+    
+    <app-add-transaction 
+        *ngIf="showAddForm"
+        [isRR]=true
+        (addedTransaction)="onAddedTransaction($event)">
+    </app-add-transaction>    
+
+    <div class="scale-container">
+
+        <section class="info">
+            <h2 class="title green-text">Debit +</h2>
+            <app-transction
+            *ngFor="let transaction of credit$ | async"
+            [transactionData]="transaction">
+            </app-transction>
+        </section>
+
+        <section class="info">
+            <h2 class="title red-text">Credit -</h2>
+            <app-transction
+            *ngFor="let transaction of debit$ | async"
+            [transactionData]="transaction">
+            </app-transction>
+        </section>
+    </div>
+</div>
+
