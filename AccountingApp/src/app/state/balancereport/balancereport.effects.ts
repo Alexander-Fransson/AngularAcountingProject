@@ -51,18 +51,12 @@ export class BalanceEffects {
 
     deleteTransaction$ = createEffect(() => this.actions$.pipe(
         ofType(balanceActions.requestDeletion),
-        mergeMap((request) => this.transactionsService.deleteTransaction(request.id)
-        .pipe(
-            map(event => {
+        mergeMap((request) => this.transactionsService.deleteTransaction(request.id).pipe(
+            mergeMap(event => {
                 if(event.id){
-                    return balanceActions.deleteFromStore({id: event.id})
-                }else{
-                    throw new Error("Event lacks Id")
-                }
-            }),
-            map(event => {
-                if(event.id){
-                    return resultActions.removeTransactionFromStore({id: event.id})
+                    return [
+                        balanceActions.deleteFromStore({id: event.id}),
+                        resultActions.removeTransactionFromStore({id: event.id})]
                 }else{
                     throw new Error("Event lacks Id")
                 }

@@ -29,13 +29,6 @@
       "id": "qbE7U_7"
     },
     {
-      "happening": "Concoring the world",
-      "amount": 9008,
-      "report": "BR",
-      "date": "2023-02-03T09:47:03.241Z",
-      "id": "1jhqKsU"
-    },
-    {
       "happening": "Real Capital",
       "amount": -9e+30,
       "report": "BR",
@@ -47,7 +40,7 @@
       "amount": 300,
       "report": "RR",
       "date": "2023-02-03T13:13:28.794Z",
-      "type": "[ResultReport] Request New Transaction",
+      "type": "[ResultReport] Request Update",
       "id": "xVcddUE"
     },
     {
@@ -67,27 +60,20 @@
       "id": "Yxtbkze"
     },
     {
-      "happening": "I spent nothing, did nothing, never ventured nor gained",
-      "amount": 300,
-      "report": "BR",
-      "date": "2023-02-03T14:04:35.153Z",
-      "id": "EQYnxy0"
-    },
-    {
-      "happening": "Bought a Cola",
-      "amount": 70000000,
-      "report": "RR",
-      "date": "2023-02-03T14:18:25.757Z",
-      "type": "[ResultReport] Request New Transaction",
-      "id": "zSkzVIc"
-    },
-    {
       "happening": "Capital",
       "amount": -300,
       "report": "RR",
       "date": "2023-02-03T14:29:03.252Z",
       "type": "[ResultReport] Request New Transaction",
       "id": "Qep2wq9"
+    },
+    {
+      "happening": "Bought a Cola",
+      "amount": 300,
+      "report": "RR",
+      "date": "2023-02-06T08:49:18.076Z",
+      "type": "[ResultReport] Request New Transaction",
+      "id": "tthXhwc"
     }
   ]
 }
